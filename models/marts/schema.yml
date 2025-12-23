@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: marts_revenue_daily
+    description: "Daily revenue KPI mart derived from int_orders_enriched."
+    columns:
+      - name: order_date
+        description: "Calendar date for daily aggregation."
+        tests:
+          - not_null
+          - unique
+
+      - name: orders
+        description: "Distinct orders per day."
+        tests:
+          - not_null
+
+      - name: customers
+        description: "Distinct customers per day."
+        tests:
+          - not_null
+
+      - name: units
+        description: "Total units sold per day."
+        tests:
+          - not_null
+
+      - name: revenue
+        description: "Daily revenue computed as quantity * price."
+        tests:
+          - not_null
+
+      - name: aov
+        description: "Average order value (revenue / orders)."
+
+      - name: revenue_per_customer
+        description: "Revenue per customer (revenue / customers)."
