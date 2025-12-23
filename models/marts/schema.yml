@@ -35,3 +35,20 @@ models:
 
       - name: revenue_per_customer
         description: "Revenue per customer (revenue / customers)."
+      - name: marts_revenue_by_category_daily
+        description: "Daily revenue KPIs broken out by product category."
+        columns:
+      - name: order_date
+        description: "Calendar date for daily aggregation."
+        tests:
+          - not_null
+
+      - name: category
+        description: "Product category."
+        tests:
+          - not_null
+
+      - name: revenue
+        description: "Daily revenue per category."
+        tests:
+          - not_null
