@@ -27,4 +27,4 @@ select
     case when orders = 0 then 0 else revenue * 1.0 / orders end as aov,
     case when customers = 0 then 0 else revenue * 1.0 / customers end as revenue_per_customer
 from daily
-order by order_date
+order by order_date desc
